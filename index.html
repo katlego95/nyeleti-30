@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NYELETI'S 30 — DRESS HEIST</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee+Shade&family=Permanent+Marker&family=Playfair+Display:ital,wght@1,900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --hot:#ff2d87; --chart:#d6ff3a; --ink:#0b0b0b; --paper:#fff8e7;
+    --sky:#3a8dff; --gold:#ffcc33; --merlot:#5a0014;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Space Mono',monospace;overflow-x:hidden}
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(255,45,135,.22), transparent 22%),
+      radial-gradient(circle at 92% 6%, rgba(58,141,255,.22), transparent 22%),
+      radial-gradient(circle at 12% 92%, rgba(214,255,58,.30), transparent 25%),
+      radial-gradient(circle at 88% 88%, rgba(255,204,51,.25), transparent 22%);
+  }
+  /* Newspaper / garage-sale halftone strip */
+  header{position:relative;z-index:2;padding:28px 18px 10px;text-align:center;border-bottom:6px dashed var(--ink)}
+  .kicker{display:inline-block;background:var(--ink);color:var(--chart);padding:6px 14px;font-family:'Anton',sans-serif;letter-spacing:6px;font-size:14px;transform:rotate(-2deg)}
+  h1{margin:14px 0 6px;font-family:'Bungee Shade',cursive;font-size:clamp(46px,9vw,120px);line-height:.95;color:var(--ink);text-shadow:6px 6px 0 var(--hot),12px 12px 0 var(--chart)}
+  h1 .pop{color:var(--hot);font-family:'Bungee Shade',cursive}
+  .sub{font-family:'Permanent Marker',cursive;font-size:clamp(18px,2.4vw,28px);transform:rotate(-1.5deg);display:inline-block;margin-top:6px;background:var(--gold);padding:4px 14px;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+  .meta{margin:18px auto 6px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-weight:700}
+  .chip{background:var(--ink);color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;letter-spacing:1px}
+  .chip.alt{background:var(--hot)}
+  .chip.alt2{background:var(--sky)}
+  .countdown{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:2px;background:var(--chart);border:3px solid var(--ink);padding:6px 14px;display:inline-block;margin-top:10px;transform:rotate(.6deg)}
+  /* Toolbar */
+  .toolbar{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:18px 14px}
+  .btn{cursor:pointer;border:3px solid var(--ink);background:#fff;padding:10px 14px;font-family:'Anton',sans-serif;letter-spacing:2px;font-size:14px;box-shadow:5px 5px 0 var(--ink);transition:transform .08s ease,box-shadow .08s ease}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+  .btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+  .btn.hot{background:var(--hot);color:#fff}
+  .btn.chart{background:var(--chart)}
+  .btn.sky{background:var(--sky);color:#fff}
+  .btn.gold{background:var(--gold)}
+  /* Grid */
+  main{position:relative;z-index:2;padding:6px 18px 60px;max-width:1300px;margin:0 auto}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+  .card{position:relative;background:#fff;border:4px solid var(--ink);box-shadow:10px 10px 0 var(--ink);overflow:hidden;transform:rotate(var(--tilt,-.4deg));transition:transform .15s ease, box-shadow .15s ease}
+  .card:nth-child(3n){--tilt:.6deg}
+  .card:nth-child(5n){--tilt:-1deg}
+  .card:hover{transform:rotate(0deg) scale(1.02);box-shadow:14px 14px 0 var(--ink)}
+  .thumb{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;background:#eee;border-bottom:4px solid var(--ink)}
+  .body{padding:14px}
+  .name{font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:18px;line-height:1.15;margin:0 0 6px}
+  .price{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:1px;display:inline-block;background:var(--chart);padding:2px 10px;border:2px solid var(--ink);transform:rotate(-1.5deg)}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .sizes{font-size:12px;font-weight:700;letter-spacing:1px}
+  .sizes b{display:inline-block;border:2px solid var(--ink);padding:2px 6px;margin-right:4px;background:#fff}
+  .sizes b.in{background:var(--chart)}
+  .sizes b.out{background:#fff;color:#bbb;text-decoration:line-through}
+  .stamp{position:absolute;top:14px;right:-8px;font-family:'Anton',sans-serif;letter-spacing:3px;padding:4px 12px;border:3px solid var(--ink);background:var(--hot);color:#fff;transform:rotate(8deg);font-size:13px;box-shadow:3px 3px 0 var(--ink)}
+  .stamp.gone{background:var(--ink);color:var(--hot);transform:rotate(-12deg)}
+  .stamp.yes{background:var(--chart);color:var(--ink)}
+  .heart{position:absolute;top:14px;left:14px;width:42px;height:42px;border-radius:50%;background:#fff;border:3px solid var(--ink);display:grid;place-items:center;cursor:pointer;font-size:22px;user-select:none;box-shadow:3px 3px 0 var(--ink)}
+  .heart.on{background:var(--hot);color:#fff;animation:pop .3s ease}
+  .shop{display:inline-block;margin-top:10px;font-family:'Anton',sans-serif;letter-spacing:2px;background:var(--ink);color:var(--chart);padding:8px 12px;text-decoration:none;border:2px solid var(--ink)}
+  .shop:hover{background:var(--hot);color:#fff}
+  .src{font-size:11px;letter-spacing:2px;color:#888;margin-top:8px}
+  .card.unavailable{filter:grayscale(.6) contrast(.95)}
+  .card.unavailable .thumb{opacity:.55}
+  /* Spotlight winner */
+  #winner{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9;align-items:center;justify-content:center;padding:18px}
+  #winner.show{display:flex}
+  #winner .box{background:var(--paper);border:6px solid var(--ink);box-shadow:14px 14px 0 var(--hot);max-width:520px;width:100%;padding:18px;text-align:center;transform:rotate(-1deg)}
+  #winner h2{font-family:'Bungee Shade',cursive;font-size:40px;color:var(--hot);margin:0 0 6px}
+  #winner img{max-width:100%;aspect-ratio:3/4;object-fit:cover;border:4px solid var(--ink)}
+  /* Confetti */
+  .confetti{position:fixed;top:-20px;width:10px;height:14px;z-index:5;pointer-events:none;animation:fall linear forwards}
+  @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+  @keyframes pop{0%{transform:scale(.6)}50%{transform:scale(1.25)}100%{transform:scale(1)}}
+  footer{position:relative;z-index:2;text-align:center;padding:30px 18px;font-size:12px;letter-spacing:2px;border-top:6px dashed var(--ink);background:var(--ink);color:var(--paper)}
+  footer .big{font-family:'Bungee Shade',cursive;font-size:28px;color:var(--gold);letter-spacing:4px}
+  /* Filter active state */
+  .btn.active{background:var(--ink);color:var(--chart)}
+</style>
+</head>
+<body>
+<header>
+  <span class="kicker">★ ISSUE 30 ★ COVER STORY ★</span>
+  <h1>NYELETI<span class="pop">.30</span></h1>
+  <div class="sub">the great dress heist · pick the look</div>
+  <div class="meta">
+    <span class="chip">DINNER &amp; DRINKS</span>
+    <span class="chip alt">TUE · 12 MAY 2026</span>
+    <span class="chip alt2">SIZE XS / S</span>
+  </div>
+  <div class="countdown" id="countdown">T-MINUS … LOADING</div>
+</header>
+
+<div class="toolbar">
+  <button class="btn chart" data-filter="all">ALL THE LOOKS</button>
+  <button class="btn hot active" data-filter="available">AVAILABLE ONLY</button>
+  <button class="btn sky" data-filter="favs">MY FAVES ♥</button>
+  <button class="btn gold" id="spin">🎰 SPIN THE WHEEL</button>
+  <button class="btn" id="reset">CLEAR FAVES</button>
+</div>
+
+<main>
+  <div class="grid" id="grid"></div>
+</main>
+
+<div id="winner" onclick="this.classList.remove('show')">
+  <div class="box">
+    <h2>THE WINNER!</h2>
+    <p style="font-family:'Permanent Marker',cursive;font-size:18px;margin:.2em 0">tap anywhere to close · spin again if you dare</p>
+    <img id="winnerImg" alt="" />
+    <div id="winnerName" style="font-family:'Playfair Display',serif;font-style:italic;font-weight:900;font-size:22px;margin-top:10px"></div>
+    <a id="winnerLink" class="shop" target="_blank" rel="noopener">SHOP THIS LOOK →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="big">★ HAPPY 30, NYELETI ★</div>
+  <div>made in a hurry · with love · taste &gt; price tags</div>
+</footer>
+
+<script>
+const DRESSES = [
+  // Vera's Closet
+  { name:"Soraya Burgundy Lace Halter Jumpsuit", price:1050, currency:"R", img:"https://verascloset.co.za/cdn/shop/files/FAC80B95-631E-4FD7-BC62-0197BF2EBDA5.jpg?v=1770118636", url:"https://verascloset.co.za/collections/new-arrival/products/soraya-burgundy-lace-halter-jumpsuit", source:"Vera's Closet", sizes:{XS:false,S:false,M:true,L:true,XL:true} },
+  { name:"Velora Glitter Halter Maxi Gown — Red", price:780, currency:"R", img:"https://verascloset.co.za/cdn/shop/files/IMG_5635_2bd10afb-7de9-4174-9778-dc698c7f90a1.jpg?v=1765532025", url:"https://verascloset.co.za/collections/new-arrival/products/velora-glitter-halter-maxi-gown-red", source:"Vera's Closet", sizes:{XS:false,S:true,M:true,L:true} },
+  { name:"Belmont Satin Scarf-Neck Mini — Black", price:750, currency:"R", img:"https://verascloset.co.za/cdn/shop/files/IMG_5536.jpg?v=1765525581", url:"https://verascloset.co.za/collections/new-arrival/products/belmont-satin-scarf-neck-mini-dress-black", source:"Vera's Closet", sizes:{XS:false,S:true,M:true,L:true} },
+  // YDE — XS not stocked; S availability varies
+  { name:"Ivory Floral Maxi Dress", price:999, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3269803_1.jpeg", url:"https://www.yde.co.za/ivory-floral-maxi-dress/product/prod3269803", source:"YDE", sizes:{XS:false,S:true,M:true,L:true,XL:false} },
+  { name:"Chocolate Spot Halter Dress", price:1299, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3264623_1.jpeg", url:"https://www.yde.co.za/chocolate-spot-halter-dress/product/prod3264623", source:"YDE", sizes:{XS:false,S:true,M:true,L:true,XL:true} },
+  { name:"Burgundy Diamante Brooch Mini Dress", price:1099, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3260984_1.jpeg", url:"https://www.yde.co.za/burgundy-diamante-brooch-mini-dress/product/prod3260984", source:"YDE", sizes:{XS:false,S:false,M:false,L:true,XL:true} },
+  { name:"Burgundy Velvet Flounce Maxi Dress", price:1299, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3268687_1.jpeg", url:"https://www.yde.co.za/burgundy-velvet-flounce-maxi-dress/product/prod3268687", source:"YDE", sizes:{XS:false,S:true,M:true,L:true} },
+  { name:"Ivory Flower Dress", price:null, currency:"R", img:"", url:"https://www.yde.co.za/ivory-flower-dress/product/prod3255834", source:"YDE", sizes:{XS:false,S:false}, removed:true },
+  { name:"Rust Neck Tie Maxi Dress", price:1099, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3252584_1.jpeg", url:"https://www.yde.co.za/rust-neck-tie-maxi-dress/product/prod3252584", source:"YDE", sizes:{XS:false,S:true,M:true,L:false,XL:false} },
+  { name:"Chocolate Jacquard Brooch Maxi Dress", price:1099, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3251591_1.jpeg", url:"https://www.yde.co.za/chocolate-jacquard-brooch-maxi-dress/product/prod3251591", source:"YDE", sizes:{XS:false,S:true,M:true,L:true,XL:true} },
+  { name:"Champagne Flower Cowl Dress", price:1299, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3201727_1.jpeg", url:"https://www.yde.co.za/champagne-flower-cowl-dress/product/prod3201727", source:"YDE", sizes:{XS:false,S:false,M:false,L:false,XL:false} },
+  { name:"Burgundy Taffeta Mini Dress", price:625, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3215710_1.jpeg", url:"https://www.yde.co.za/burgundy-taffeta-mini-dress/product/prod3215710", source:"YDE", sizes:{XS:false,S:false,M:false,L:false,XL:false} },
+  { name:"Mink Frilled Strappy Maxi Dress", price:625, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3224898_1.jpeg", url:"https://www.yde.co.za/mink-frilled-strappy-maxi-dress/product/prod3224898", source:"YDE", sizes:{XS:false,S:false,M:false,L:false} },
+  { name:"Gold Feather Detail Dress", price:1150, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3217854_1.jpeg", url:"https://www.yde.co.za/gold-feather-detail-dress/product/prod3217854", source:"YDE", sizes:{XS:false,S:true,M:true,L:true} },
+  { name:"Gold Drape Front Dress", price:799, currency:"R", img:"https://i1.adis.ws/i/truworths/prod3250888_1.jpeg", url:"https://www.yde.co.za/gold-drape-front-dress/product/prod3250888", source:"YDE", sizes:{XS:false,S:false,M:false,L:true,XL:false} }
+];
+
+const FAV_KEY = "ny30_favs";
+const favs = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || "[]"));
+const saveFavs = () => localStorage.setItem(FAV_KEY, JSON.stringify([...favs]));
+
+const isAvailable = (d) => !!(d.sizes.XS || d.sizes.S);
+const fmtPrice = (d) => d.price == null ? "—" : `${d.currency}${d.price.toLocaleString()}`;
+
+const grid = document.getElementById("grid");
+function render(filter) {
+  grid.innerHTML = "";
+  let list = DRESSES.slice();
+  if (filter === "available") list = list.filter(isAvailable);
+  if (filter === "favs") list = list.filter(d => favs.has(d.url));
+  list.forEach((d, i) => {
+    const avail = isAvailable(d);
+    const fav = favs.has(d.url);
+    const card = document.createElement("article");
+    card.className = "card" + (avail ? "" : " unavailable");
+    const stampLabel = d.removed ? "GONE" : (avail ? "XS/S YES" : "NO XS/S");
+    const stampClass = d.removed ? "gone" : (avail ? "yes" : "");
+    const sizesOrder = ["XS","S","M","L","XL","XXL"];
+    const sizesHTML = sizesOrder
+      .filter(s => s in d.sizes)
+      .map(s => `<b class="${d.sizes[s]?'in':'out'}">${s}</b>`).join("");
+    card.innerHTML = `
+      <div class="heart ${fav?'on':''}" data-url="${d.url}" title="favourite">${fav?'♥':'♡'}</div>
+      <div class="stamp ${stampClass}">${stampLabel}</div>
+      ${d.img ? `<img class="thumb" loading="lazy" src="${d.img}" alt="${d.name}" onerror="this.style.background='#eee';this.style.opacity=.3">`
+              : `<div class="thumb" style="display:grid;place-items:center;color:#999;font-family:'Anton'">NO IMAGE</div>`}
+      <div class="body">
+        <div class="name">${d.name}</div>
+        <div class="row">
+          <span class="price">${fmtPrice(d)}</span>
+          <span class="sizes">${sizesHTML || '<b class="out">N/A</b>'}</span>
+        </div>
+        <a class="shop" href="${d.url}" target="_blank" rel="noopener">SHOP IT →</a>
+        <div class="src">${d.source}</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  document.querySelectorAll(".heart").forEach(h => h.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const url = h.dataset.url;
+    if (favs.has(url)) favs.delete(url); else favs.add(url);
+    saveFavs();
+    h.classList.toggle("on");
+    h.textContent = favs.has(url) ? "♥" : "♡";
+  }));
+}
+
+// Toolbar
+document.querySelectorAll("[data-filter]").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll("[data-filter]").forEach(x => x.classList.remove("active"));
+  b.classList.add("active");
+  render(b.dataset.filter);
+}));
+document.getElementById("reset").addEventListener("click", () => { favs.clear(); saveFavs(); render(document.querySelector("[data-filter].active").dataset.filter); });
+
+// Wheel spinner — random pick of available
+document.getElementById("spin").addEventListener("click", () => {
+  const pool = DRESSES.filter(isAvailable);
+  if (!pool.length) return;
+  const pick = pool[Math.floor(Math.random()*pool.length)];
+  document.getElementById("winnerImg").src = pick.img;
+  document.getElementById("winnerName").textContent = `${pick.name} · ${fmtPrice(pick)}`;
+  document.getElementById("winnerLink").href = pick.url;
+  document.getElementById("winner").classList.add("show");
+  burst();
+});
+
+// Confetti burst
+function burst(){
+  const colors = ["#ff2d87","#d6ff3a","#3a8dff","#ffcc33","#5a0014","#0b0b0b"];
+  for (let i=0;i<80;i++){
+    const c = document.createElement("i");
+    c.className = "confetti";
+    c.style.left = Math.random()*100 + "vw";
+    c.style.background = colors[i % colors.length];
+    c.style.animationDuration = (1.6 + Math.random()*1.8) + "s";
+    c.style.transform = `rotate(${Math.random()*360}deg)`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(), 4000);
+  }
+}
+
+// Countdown to Tue 12 May 2026, 19:00 SAST (UTC+2) — dinner-ish o'clock
+const target = new Date("2026-05-12T19:00:00+02:00");
+function tick(){
+  const now = new Date();
+  let s = Math.max(0, Math.floor((target - now)/1000));
+  const d = Math.floor(s/86400); s %= 86400;
+  const h = Math.floor(s/3600); s %= 3600;
+  const m = Math.floor(s/60); s %= 60;
+  document.getElementById("countdown").textContent =
+    `T-MINUS  ${d}D : ${String(h).padStart(2,"0")}H : ${String(m).padStart(2,"0")}M : ${String(s).padStart(2,"0")}S`;
+}
+tick(); setInterval(tick, 1000);
+
+render("available");
+// little entry pop
+setTimeout(burst, 200);
+</script>
+</body>
+</html>
