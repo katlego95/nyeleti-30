@@ -92,7 +92,7 @@
   <div class="meta">
     <span class="chip">DINNER &amp; DRINKS</span>
     <span class="chip alt">TUE · 12 MAY 2026</span>
-    <span class="chip alt2">SIZE XS / S</span>
+    <span class="chip alt2">SIZE XS / S · UK 6–8</span>
   </div>
   <div class="countdown" id="countdown">T-MINUS … LOADING</div>
 </header>
@@ -149,7 +149,36 @@ const DRESSES = [
   { name:"Zephina Strapless Mini Dress", price:2099, currency:"R", img:"https://forevernew.co.za/cdn/shop/files/30105601_F.jpg?v=1772183586&width=2048", url:"https://forevernew.co.za/products/zephina-strapless-mini-dress-30105601", source:"Forever New", sizes:{XS:true,S:true,M:true,L:true,XL:true} },
   { name:"The FIX Brown Plisse Asymmetric Dress", price:299.99, currency:"R", img:"https://thefoschini.vtexassets.com/arquivos/ids/223514119/cf9f5619-c334-44c2-822c-bcfc5c7e43be.png?v=639033698383530000", url:"https://bash.com/the-fix-women-s-brown-plisse-asymmetric-dress-170800abqp2/p", source:"Bash · The FIX", sizes:{XS:true,S:true,M:true,L:true,XL:true} },
   { name:"Bodycon Midi Dress with Accessory Detail — Brown", price:559, currency:"R", img:"https://assets.superbalistcdn.co.za/filters:quality(75):format(jpg)/4882986/original.jpg", url:"https://superbalist.com/women/dresses/occasion/bodycon-midi-dress-with-accessory-detail-brown/1689943", source:"Superbalist · was R799", sizes:{XS:true,S:true,M:true,L:true,XL:false} },
-  { name:"LS Satin Long Sleeve Mini Dress — Natural", price:399, currency:"R", img:"https://thefoschini.vtexassets.com/arquivos/ids/225540034/89750705-586f-40fe-895a-975a2a7d94b2.png?v=639112378743230000", url:"https://bash.com/ls-satin-dress-mini-natural-000000aanz7/p", source:"Bash", sizes:{XS:true,S:true,M:true,L:true,XL:true} }
+  { name:"LS Satin Long Sleeve Mini Dress — Natural", price:399, currency:"R", img:"https://thefoschini.vtexassets.com/arquivos/ids/225540034/89750705-586f-40fe-895a-975a2a7d94b2.png?v=639112378743230000", url:"https://bash.com/ls-satin-dress-mini-natural-000000aanz7/p", source:"Bash", sizes:{XS:true,S:true,M:true,L:true,XL:true} },
+  // Round 3 — added 6 May
+  // Princess Lola
+  { name:"Hot Pink Tassel Trim Cami Bodycon Dress", price:490, currency:"R", img:"https://www.princesslolaboutique.co.za/cdn/shop/files/rn-image_picker_lib_temp_8efaf8dc-de43-4c5b-93c1-fdfbb6b12e08.jpg?v=1706955414", url:"https://www.princesslolaboutique.co.za/products/hot-pink-tassel-trim-cami-bodycon-dress", source:"Princess Lola", sizes:{S:false,L:true} },
+  // Material Girlz
+  { name:"Ruffled Floral Dress", price:450, currency:"R", img:"https://cdn.shopify.com/s/files/1/0617/0591/2496/files/ChatGPT_Image_Mar_23_2026_02_05_05_PM.png?v=1774268041", url:"https://materialgirlz.co.za/products/ruffled-floral-dress", source:"Material Girlz", sizes:{XS:true,S:true,M:true,L:false} },
+  { name:"Dash of Sun Dress", price:450, currency:"R", img:"https://cdn.shopify.com/s/files/1/0617/0591/2496/files/ChatGPT_Image_Mar_23_2026_02_04_29_PM.png?v=1774268144", url:"https://materialgirlz.co.za/products/coming-10", source:"Material Girlz", sizes:{S:false,M:false,L:false,XL:false} },
+  { name:"Blue Ice Dress", price:330, currency:"R", img:"https://cdn.shopify.com/s/files/1/0617/0591/2496/files/Vibrant_tie-dye_maxi_dress.png?v=1774268089", url:"https://materialgirlz.co.za/products/blue-ice-dress", source:"Material Girlz", sizes:{S:false,M:false,L:true} },
+  { name:"Pretty Woman Dress", price:400, currency:"R", img:"https://cdn.shopify.com/s/files/1/0617/0591/2496/files/ChatGPT_Image_Mar_23_2026_02_22_43_PM.png?v=1774268591", url:"https://materialgirlz.co.za/products/coming-7", source:"Material Girlz", sizes:{S:true,M:false,L:false} },
+  { name:"Riviera Romance Dress", price:500, currency:"R", img:"https://cdn.shopify.com/s/files/1/0617/0591/2496/files/ChatGPT_Image_Mar_23_2026_03_19_29_PM.png?v=1774271996", url:"https://materialgirlz.co.za/products/riviera-romance-dress", source:"Material Girlz", sizes:{S:false,M:true,L:false} },
+  { name:"Green With Envy Dress", price:380, currency:"R", img:"https://cdn.shopify.com/s/files/1/0617/0591/2496/files/ChatGPT_Image_Mar_23_2026_03_00_15_PM.png?v=1774270850", url:"https://materialgirlz.co.za/products/coming-27", source:"Material Girlz", sizes:{S:true,M:true,L:true} },
+  // House of Mahal — all in stock across XS/S/M/L
+  { name:"Camilla Black Dress", price:2500, currency:"R", img:"https://cdn.shopify.com/s/files/1/0115/0733/5234/files/Facetune_14-04-2025-21-51-49.jpg?v=1744702188", url:"https://houseofmahal.com/products/camilla-black-dress", source:"House of Mahal", sizes:{XS:true,S:true,M:true,L:true,XL:true} },
+  { name:"Ivy Fringe Halter Dress", price:1800, currency:"R", img:"https://cdn.shopify.com/s/files/1/0115/0733/5234/files/IMG_8450.jpg?v=1775055844", url:"https://houseofmahal.com/collections/dresses/products/ivy-fringe-halter-dress", source:"House of Mahal", sizes:{XS:true,S:true,M:true} },
+  { name:"Feather Trim Mini Dress", price:1800, currency:"R", img:"https://cdn.shopify.com/s/files/1/0115/0733/5234/files/192DC636-9FC0-4A05-9BE7-9FBC467770BB_6981f6d7-4723-462b-8bce-a72fa1b28052.png?v=1775031982", url:"https://houseofmahal.com/collections/dresses/products/feather-trim-mini-dress", source:"House of Mahal", sizes:{XS:true,S:true,M:true,L:true} },
+  { name:"Nina Flutter Bodycon Dress", price:2200, currency:"R", img:"https://cdn.shopify.com/s/files/1/0115/0733/5234/files/Facetune_14-04-2025-09-20-37.jpg?v=1744616719", url:"https://houseofmahal.com/collections/dresses/products/nina-flutter-bodycon-dress", source:"House of Mahal", sizes:{XS:true,S:true,M:true,L:true,XL:true} },
+  // Forever New (size 4=XS, 6=XS-S, 8=S, 10=M, 12=L, 14=L, 16+=XL)
+  { name:"Ivy Petite Lace Corset Maxi Dress — Dark Choc", price:2599, currency:"R", img:"https://cdn.shopify.com/s/files/1/0509/3490/7037/files/30324907_F.jpg?v=1772196822", url:"https://forevernew.co.za/products/ivy-petite-lace-corset-maxi-dress-30324907", source:"Forever New", sizes:{XS:true,S:true,M:true,L:true,XL:false} },
+  { name:"Allegra Mesh Midi Dress — Bruny Floral", price:1699, currency:"R", img:"https://cdn.shopify.com/s/files/1/0509/3490/7037/files/30042703_F.jpg?v=1772195391", url:"https://forevernew.co.za/products/allegra-mesh-midi-dress-30042703", source:"Forever New", sizes:{XS:true,S:true,M:true,L:true,XL:true} },
+  { name:"Betty Strapless Bodycon Dress — Chocolate", price:1799, currency:"R", img:"https://cdn.shopify.com/s/files/1/0509/3490/7037/files/30330304_F.jpg?v=1776760942", url:"https://forevernew.co.za/products/betty-strapless-bodycon-dress-30330304", source:"Forever New", sizes:{XS:true,S:true,M:true,L:true,XL:true} },
+  { name:"Isra Drape Strapless Maxi Dress — Vintage Merlot", price:2499, currency:"R", img:"https://cdn.shopify.com/s/files/1/0509/3490/7037/files/29874016_F.jpg?v=1772195012", url:"https://forevernew.co.za/products/isra-drape-strapless-maxi-dress-29874016", source:"Forever New", sizes:{XS:true,S:true,M:true,L:true,XL:true} },
+  { name:"Jess Lace Trim Midi Dress — Jaya Spot", price:1899, currency:"R", img:"https://cdn.shopify.com/s/files/1/0509/3490/7037/files/30129901_F.jpg?v=1771496378", url:"https://forevernew.co.za/products/jess-lace-trim-midi-dress-30129901", source:"Forever New", sizes:{XS:true,S:true,M:true,L:true,XL:true} },
+  // Edgars
+  { name:"Believe In Me Cinched Waist Mini Dress — Red", price:999, currency:"R", img:"https://cdn.shopify.com/s/files/1/0854/9947/8299/files/D32999_1.jpg?v=1769598439", url:"https://www.edgars.co.za/collections/women-dresses/products/belive-in-me-cinched-waist-mini-dress-red-42536601", source:"Edgars · Sissy Boy", sizes:{XS:false,S:true,M:true,L:true,XL:false} },
+  { name:"Strap & Cup Detail Maxi Dress — Black", price:1299, currency:"R", img:"https://cdn.shopify.com/s/files/1/0854/9947/8299/files/40432201_3.jpg?v=1759310206", url:"https://www.edgars.co.za/collections/women-dresses/products/strap-and-cup-detail-maxi-dress-black-40432201", source:"Edgars", sizes:{XS:false,S:true,M:true,L:false,XL:false} },
+  { name:"Off Shoulder Mesh Maxi Dress — Plum", price:249.99, currency:"R", img:"https://cdn.shopify.com/s/files/1/0854/9947/8299/files/EDG0303262885.jpg?v=1773128433", url:"https://www.edgars.co.za/collections/women-dresses/products/strap-mesh-maxi-dress-plum-41158001", source:"Edgars", sizes:{XS:false,S:false,M:false,L:true} },
+  // MyRunway round 2
+  { name:"Daily Finery Aqua Cowl Neck Fringe Chainmail Mini", price:162, currency:"R", img:"https://s3-eu-west-1.amazonaws.com/myrunway-portal-global/Images/ASY_500167067_BLUE/df204969-d4ca-4b0b-ac3e-d2221e2a8690.jpeg", url:"https://myrunway.co.za/product/ASY_500167067_BLUE", source:"MyRunway · was R1,500", sizes:{XS:true,S:false,L:true} },
+  { name:"TFNC Silver Bridesmaid Dress", price:169, currency:"R", img:"https://s3-eu-west-1.amazonaws.com/myrunway-portal-global/Images/TFN_500094551_PINK/TFN_500094551_PINK%7C0.jpeg", url:"https://myrunway.co.za/product/TFN_500094551_PINK", source:"MyRunway · was R830", sizes:{XS:true,S:true,M:true,L:true,XL:true} },
+  { name:"Daily Finery Khaki Petite Cross Back Mini", price:159, currency:"R", img:"https://s3-eu-west-1.amazonaws.com/myrunway-portal-global/Images/GLA_790964_GREEN/GLA_790964_GREEN%7C0.jpg", url:"https://myrunway.co.za/product/GLA_790964_GREEN", source:"MyRunway · was R500", sizes:{M:true,L:true,XL:true} }
 ];
 
 const FAV_KEY = "ny30_favs";
